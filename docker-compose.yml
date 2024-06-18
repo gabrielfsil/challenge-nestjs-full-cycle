@@ -1,0 +1,19 @@
+services:
+  app:
+    container_name: partners-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+
+  db:
+    container_name: partners-db
+    image: mysql:8.0.30-debian
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: partner1
+    ports:
+      - 3306:3306
